@@ -47,6 +47,7 @@ COPY ./yarn.lock /app/yarn.lock
 COPY ./experimenter/static/core/package.json /app/experimenter/static/core/package.json
 COPY ./experimenter/static/rapid/package.json /app/experimenter/static/rapid/package.json
 COPY ./experimenter/static/visualization/package.json /app/experimenter/static/visualization/package.json
+COPY ./experimenter/nimbus-ui/package.json /app/experimenter/nimbus-ui/package.json
 RUN yarn install --frozen-lockfile
 
 
@@ -55,6 +56,7 @@ COPY ./experimenter/static/ /app/experimenter/static/
 RUN yarn workspace @experimenter/core build
 RUN yarn workspace @experimenter/visualization build
 RUN yarn workspace @experimenter/rapid build
+RUN yarn workspace @experimenter/nimbus-ui build
 
 
 # Copy source
